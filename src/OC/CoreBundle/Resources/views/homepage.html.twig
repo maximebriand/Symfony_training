@@ -1,0 +1,11 @@
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block ocplatform_body %}
+    {% for message in app.session.flashbag.get('info') %}
+        <p class="alert alert-info"><strong>Message Flash :</strong> {{ message }}</p>
+    {%  endfor %}
+
+    <h3>Les trois dernières annonces :</h3>
+    {{ render(controller('OCPlatformBundle:Advert:menu', {'limit': 3})) }}
+
+{% endblock %}

@@ -5,19 +5,5 @@
 {% endblock %}
 
 {% block ocplatform_body %}
-    <h2>Listes des annonces</h2>
-
-    <ul>
-        {% for advert in listAdverts %}
-            <li>
-                <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
-                    {{ advert.title }}
-                </a>
-                par {{ advert.author }},
-                le {{ advert.date|date('d/m/Y') }}
-            </li>
-        {% else %}
-            <li>Pas encore d'annonces</li>
-        {% endfor %}
-    </ul>
+    {% include("OCPlatformBundle:Advert:listAdvert.html.twig") %}
 {% endblock %}
